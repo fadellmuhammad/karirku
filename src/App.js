@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { GlobalStyle } from "./assets/styles/Styles"
+import { Route, Routes } from "react-router-dom";
+import Career from "./pages/careerRecommend/Career";
+import Layout from "./components/layout/Layout";
+import Landing from "./pages/landing/Landing";
+import Vacancy from "./pages/vacancy/Vacancy";
+import Aos from "aos";
 
 function App() {
+  Aos.init()
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <GlobalStyle />
+      {/* <Pages/> */}
+      <Routes>
+        <Route path="/" element={<Layout content={<Landing />} />} />
+        <Route path="karir" element={<Layout content={<Career />} />} />
+        <Route path="lowongan" element={<Layout content={<Vacancy />} />} />
+      </Routes>
+    </>
   );
 }
 
