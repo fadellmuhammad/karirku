@@ -9,8 +9,16 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   html {
-    font-size: 62.5%;
+  font-size: 62.5%;
+
+  @media (max-width: 1124px) {
+    font-size: 35%;
   }
+
+  @media (max-width: 425px) {
+    font-size: 40%;
+  }
+}
 
   html,
   body {
@@ -40,9 +48,12 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   .container {
-    margin: 0 10rem;
+    margin: 0 9rem;
 
-    @media (max-width: 425px) {
+    @media (max-width: 761px) {
+      margin: 0 6rem;
+    }
+    @media (max-width: 426px) {
       margin: 0 3rem;
     }
   }

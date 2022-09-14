@@ -8,7 +8,7 @@ const Vacancy = () => {
   return (
     <VacancyWrapp>
       <div className="vacancy">
-        <div className="container">
+        {/* <div className="container"> */}
           <div className="content">
             <div className="list-vacancy">
               <ul>
@@ -71,7 +71,7 @@ const Vacancy = () => {
               }
             </div>
           </div>
-        </div>
+        {/* </div> */}
       </div>
     </VacancyWrapp>
   )

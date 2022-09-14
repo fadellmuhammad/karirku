@@ -1,14 +1,13 @@
 import styled from "styled-components"
 
 export const FooterWrapp = styled.section`
-  /* height: 250px; */
   background: #424242;
   color: white;
   padding: 50px 0;
 
   .content-footer {
     display: grid;
-    grid-template-columns: 30% 30% 30%;
+    grid-template-columns: auto auto auto;
     gap: 50px;
     margin-bottom: 20px;
 
@@ -52,6 +51,13 @@ export const FooterWrapp = styled.section`
 
     .address {
       max-width: 250px;
+    }
+
+    @media (max-width: 768px) {
+      grid-template-columns: auto auto
+    }
+    @media (max-width: 426px) {
+      grid-template-columns: auto
     }
   }
 

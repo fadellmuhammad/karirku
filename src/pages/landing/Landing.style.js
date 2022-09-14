@@ -1,24 +1,32 @@
 import styled from "styled-components"
 
 export const LandingWrapp = styled.section`
-    margin-top: 80px;
+  margin-top: 80px;
 
-    .background-color {
-      background-color: #F8F8F8;
-    }
-    
-    .landing {
-    display: grid;
-    grid-template-columns: 40% 60%;
-    padding: 100px 50px;
+  .background-color {
+    background-color: #F8F8F8;
+  }
+  
+  .landing {
+    /* display: grid; */
+    /* grid-template-columns: 40% 60%; */
+    /* grid-template-columns: auto auto; */
+    /* gap: 20px; */
+    display: flex;
+    justify-content: space-between;
+    /* padding: 100px 50px; */
     height: 700px;
+
+    @media (max-width: 1050px) {
+      flex-direction: column-reverse;
+    }
     .left {
       display: flex;
       .content {
         .title {
-          width: 300px;
+          max-width: 300px;
           font-weight: 700;
-          font-size: 50px;
+          font-size: 6rem;
           line-height: 61px;
           letter-spacing: 0.035em;
           span {
@@ -26,7 +34,7 @@ export const LandingWrapp = styled.section`
           }
         }
         .desc {
-          width: 400px;
+          max-width: 400px;
           font-size: 20px;
         }
         .section {
@@ -34,7 +42,8 @@ export const LandingWrapp = styled.section`
           margin-top: 30px;
 
           button {
-            width: 256px;
+            max-width: 256px;
+            width: 100%;
             height: 53px;
             background: linear-gradient(180deg, #FD88B3 0%, #F86896 100%);
             box-shadow: 1px 5px 14px rgba(250, 113, 158, 0.42);

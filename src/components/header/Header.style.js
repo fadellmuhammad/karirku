@@ -13,26 +13,43 @@ export const HeaderWrapp = styled.div`
       display: flex;
       align-items: center;
       justify-content: space-between;
+
+      .list {
+        display: flex;
+        align-items: center;
+        font-size: 20px;
+        font-weight: 700;
+
+        li {
+          margin-left: 50px;
+        }
+
+        img {
+          width: 158px;
+          height: 40px;
+        }
+
+        .logo {
+          margin: 0 100px;
+        }
+      }
+
+      .hamburger img {
+          width: 30px; 
+        }
     }
+  }
+  
 
-    .list {
-      display: flex;
-      align-items: center;
-      font-size: 20px;
-      font-weight: 700;
+  @media (max-width: 761px) {
+    .display-desktop {
+      display: none;
+    }
+  }
 
-      li {
-        margin-left: 50px;
-      }
-
-      img {
-        width: 158px;
-        height: 40px;
-      }
-
-      .logo {
-        margin: 0 100px;
-      }
+  @media (min-width: 762px) {
+    .display-mobile {
+      display: none;
     }
   }
 `

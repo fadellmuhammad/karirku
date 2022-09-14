@@ -7,6 +7,7 @@ const fade = keyframes`
 
 export const VacancyWrapp = styled.div`
   background-color: #F8F8F8;
+
   .vacancy {
     padding-top: 130px;
     padding-bottom: 90px;
@@ -76,6 +77,13 @@ export const VacancyWrapp = styled.div`
           animation: ${fade} 0.2s ease-in-out;
         }
       }
+      @media (max-width: 1000px) {
+        grid-template-columns: 80%;
+
+        .content-description {
+          display: none;
+        }
+      } 
     }
   }
 `

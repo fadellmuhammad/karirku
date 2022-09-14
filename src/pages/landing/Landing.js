@@ -18,10 +18,10 @@ const Landing = () => {
                   Disini kamu bisa mencari tahunya</p>
                 <div className="section">
                   <button>Coba Sekarang</button>
-                  <div className="info">
+                  {/* <div className="info">
                     <h1>50 +</h1>
                     <p>Info Lowongan</p>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>

@@ -4,16 +4,16 @@ const fade_in = keyframes`
 0% {opacity: 0}
 100% {opacity: 1}
 `
-const fade_out = keyframes`
-0% {opacity: 0}
-100% {opacity: 1}
-`
+// const fade_out = keyframes`
+// 0% {opacity: 0}
+// 100% {opacity: 1}
+// `
 
 export const CareerWrapp = styled.div`
   background-color: #F8F8F8;
-  margin-top: 50px;
-
+  
   .career {
+    padding-top: 50px;
     display: flex;
     justify-content: center;
 

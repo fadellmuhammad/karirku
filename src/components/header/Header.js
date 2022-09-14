@@ -1,7 +1,8 @@
 import React from "react"
-import { image } from "../../assets/images"
 import { HeaderWrapp } from "./Header.style"
-import { Link } from 'react-router-dom'
+import { image } from "../../assets/images"
+import MenuMobile from "./components/Menu"
+// import Sidebar from "./components/sidebar/Sidebar"
 
 const Header = () => {
   return (
@@ -10,11 +11,21 @@ const Header = () => {
         <div className="container">
           <div className="header-content">
             <img src={image.logo} alt="logo" className="logo" />
-            <ul className="list">
-              <li><Link to='/karir'>Rekomendasi Karir</Link></li>
-              <li><Link to='/lowongan'>Lowongan</Link></li>
-              <li><Link to='/'>Beranda</Link></li>
-            </ul>
+            <div className="display-desktop">
+              {/* <Sidebar /> */}
+              <MenuMobile/>
+            </div>
+            <div className="display-mobile">
+              <div className="display-mobile" id="menu">
+                {/* <Sidebar pageWrapId={"page-wrap"} outerContainerId={"menu"} /> */}
+                {/* </div> */}
+                {/* <div id="page-wrap"></div> */}
+                <div className="hamburger">
+                  <img src={image.hamburger} alt="hamburger"/>
+                </div>
+                {/* </div> */}
+              </div>
+            </div>
           </div>
         </div>
       </div>

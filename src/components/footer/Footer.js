@@ -15,8 +15,8 @@ const Footer = () => {
               </div>
               <p>Platform pencarian magang sesuai dengan kemampuan dan minat</p>
               <div className="logos">
-                <img src={image.icon_instagram} alt="" />
-                <img src={image.icon_linkedin} alt="" />
+                <img src={image.icon_instagram} alt="icon-instagram" />
+                <img src={image.icon_linkedin} alt="icon-linkedin" />
                 <p className="text">KarirKu</p>
               </div>
             </div>
