@@ -2,38 +2,38 @@ import React, { useEffect, useState } from "react"
 import { getQuiz } from '../../api/Api'
 import { QuizWrapp } from "./Quiz.style"
 
-const data = [
-  {
-    id: 1,
-    quest: 'pilihlah bidang yang anda sukai',
-    answers: [
-      {
-        answer: 'front end'
-      },
-      {
-        answer: 'front end'
-      },
-      {
-        answer: 'front end'
-      }
-    ]
-  },
-  {
-    id: 2,
-    quest: 'apakah anda suka',
-    answers: [
-      {
-        answer: 'bek end'
-      },
-      {
-        answer: 'bek end'
-      },
-      {
-        answer: 'bek end'
-      }
-    ]
-  }
-]
+// const data = [
+//   {
+//     id: 1,
+//     quest: 'pilihlah bidang yang anda sukai',
+//     answers: [
+//       {
+//         answer: 'front end'
+//       },
+//       {
+//         answer: 'front end'
+//       },
+//       {
+//         answer: 'front end'
+//       }
+//     ]
+//   },
+//   {
+//     id: 2,
+//     quest: 'apakah anda suka',
+//     answers: [
+//       {
+//         answer: 'bek end'
+//       },
+//       {
+//         answer: 'bek end'
+//       },
+//       {
+//         answer: 'bek end'
+//       }
+//     ]
+//   }
+// ]
 
 const Quiz = () => {
   const [quiz, setQuiz] = useState()
