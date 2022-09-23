@@ -9,17 +9,12 @@ export const FavoriteInternWrapp = styled.section`
       margin-bottom: 30px;
     }
     .favintern-card-container {
-      display: grid;
-      grid-template-columns: auto auto auto auto;
+      display: flex;
+      justify-content: space-around;
       gap: 20px;
-      justify-content: space-between;
 
-      @media (max-width: 1080px) {
-        grid-template-columns: auto auto;
-        justify-content: space-around;
-      }
-      @media (max-width: 600px) {
-        grid-template-columns: auto;
+      @media (max-width: 1050px) {
+        flex-direction: column;
       }
     }
   }

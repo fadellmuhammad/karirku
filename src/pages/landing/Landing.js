@@ -1,11 +1,10 @@
 import React from "react"
-import { image } from "../../assets/images"
 import FavoriteIntern from "./components/favoriteIntern/FavoriteIntern"
 import Testimonial from "./components/testimonial/Testimonial"
+import { image } from "../../assets/images"
 import { LandingWrapp } from "./Landing.style"
 
 const Landing = () => {
-
   return (
     <LandingWrapp>
       <div className="background-color">
@@ -18,10 +17,6 @@ const Landing = () => {
                   Disini kamu bisa mencari tahunya</p>
                 <div className="section">
                   <button>Coba Sekarang</button>
-                  {/* <div className="info">
-                    <h1>50 +</h1>
-                    <p>Info Lowongan</p>
-                  </div> */}
                 </div>
               </div>
             </div>

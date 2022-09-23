@@ -38,10 +38,17 @@ export const HeaderWrapp = styled.div`
           width: 30px; 
         }
     }
+
+    .logo-mobile {
+      height: 60px;
+      display: flex;
+      align-items: center;
+      margin-left: 20px;
+    }
   }
   
 
-  @media (max-width: 761px) {
+  @media (max-width: 762px) {
     .display-desktop {
       display: none;
     }
