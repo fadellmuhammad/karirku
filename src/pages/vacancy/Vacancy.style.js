@@ -67,7 +67,6 @@ export const VacancyWrapp = styled.div`
           font-weight: 500;
           font-size: 20px;
           margin-top: 10px;
-          /* line-height: 18px; */
         }
         .section-describe {
           text-align: justify;

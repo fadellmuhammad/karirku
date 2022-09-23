@@ -2,7 +2,8 @@ import styled from "styled-components"
 
 export const FavoriteInternCardWrapp = styled.div`
   .intern-card {
-    max-width: 300px;
+    /* max-width: 100%; */
+    width: 280px;
     /* height: 160px; */
     padding: 30px 20px;
     border-radius: 21px;

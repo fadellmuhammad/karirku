@@ -9,7 +9,7 @@ export const HeaderWrapp = styled.div`
     z-index: 1;
 
     .header-content {
-      height: 80px;
+      height: 60px;
       display: flex;
       align-items: center;
       justify-content: space-between;

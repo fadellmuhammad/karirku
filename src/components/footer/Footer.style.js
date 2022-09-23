@@ -8,8 +8,8 @@ export const FooterWrapp = styled.section`
   .content-footer {
     display: grid;
     grid-template-columns: auto auto auto;
-    gap: 50px;
-    margin-bottom: 20px;
+    gap: 2rem;
+    margin-bottom: 2rem;
 
     .about {
       max-width: 250px;
@@ -21,7 +21,7 @@ export const FooterWrapp = styled.section`
 
         .text {
           font-weight: 600;
-          margin-left: 8px;
+          margin-left: 1rem;
         }
 
         img {
@@ -32,15 +32,15 @@ export const FooterWrapp = styled.section`
 
     .logo {
       display: flex;
-      margin-bottom: 10px;
+      margin-bottom: 1rem;
 
       h1 {
-        margin: 0 0 0 8px;
+        margin: 0 0 0 1rem;
       }
     }
 
     h1 {
-      margin-bottom: 8px;
+      margin-bottom: 1rem;
     }
 
     .navigation {
@@ -50,7 +50,7 @@ export const FooterWrapp = styled.section`
     }
 
     .address {
-      max-width: 250px;
+      max-width: 350px;
     }
 
     @media (max-width: 768px) {
@@ -62,7 +62,7 @@ export const FooterWrapp = styled.section`
   }
 
   .copyright {
-    font-size: 16px;
+    font-size: 2rem;
     font-weight: 500;
     text-align: center;
   }

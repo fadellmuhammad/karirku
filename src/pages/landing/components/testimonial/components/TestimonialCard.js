@@ -15,10 +15,7 @@ const TestimonialCard = () => {
             <p className="role">Frontend Developer</p>
           </div>
         </div>
-        <div className="desc">
-          <p>publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface </p>
-        </div>
-
+          <p className="desc">publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface </p>
       </div>
     </TestimonialCardWrapp>
   )

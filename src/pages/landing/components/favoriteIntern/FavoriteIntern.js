@@ -9,18 +9,24 @@ const FavoriteIntern = () => {
         <div className="favorite-intern">
           <h1 className="title">Tempat Magang Favorite</h1>
           <div className="favintern-card-container">
-            <div data-aos="fade-up" data-aos-offset="50" data-aos-duration="200">
+            <div data-aos="fade-up" data-aos-offset="10">
               <FavoriteInternCard />
             </div>
-            <div data-aos="fade-up" data-aos-offset="50" data-aos-duration="400">
+            <div data-aos="fade-up" data-aos-offset="10">
+              <FavoriteInternCard />
+            </div>
+            <div data-aos="fade-up" data-aos-offset="10">
+              <FavoriteInternCard />
+            </div>
+            {/* <div data-aos="fade-up" data-aos-offset="50" data-aos-duration="400">
               <FavoriteInternCard />
             </div>
             <div data-aos="fade-up" data-aos-offset="50" data-aos-duration="600">
               <FavoriteInternCard />
-            </div>
-            <div data-aos="fade-up" data-aos-offset="50" data-aos-duration="800">
+            </div> */}
+            {/* <div data-aos="fade-up" data-aos-offset="50" data-aos-duration="800">
               <FavoriteInternCard />
-            </div>
+            </div> */}
             {/* <FavoriteInternCard />
             <FavoriteInternCard />
             <FavoriteInternCard /> */}

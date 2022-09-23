@@ -25,7 +25,7 @@ const Landing = () => {
                 </div>
               </div>
             </div>
-            <div data-aos="fade-left" className="right">
+            <div className="right">
               <div className="background-image">
                 <div className="image">
                   <img src={image.image_ilustration} alt='image_ilustration' />
