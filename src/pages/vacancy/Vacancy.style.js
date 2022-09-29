@@ -21,8 +21,6 @@ export const VacancyWrapp = styled.div`
         .vacancy-item {
           cursor: pointer;
           display: flex;
-          /* width: 354px; */
-          height: 100px;
           background: #FFFFFF;
           box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.04);
           border-radius: 12px;
@@ -32,7 +30,11 @@ export const VacancyWrapp = styled.div`
           .logo-company {
             display: flex;
             align-items: center;
-            margin-right: 20px;
+            margin-right: 15px;
+
+            img {
+              width: 50px;
+            }
           }
 
           .company-profile {
@@ -45,7 +47,6 @@ export const VacancyWrapp = styled.div`
       }
 
       .content-description {
-        /* width: 554px; */
         min-height: 537px;
         background: #FFFFFF;
         box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.04);
@@ -63,6 +64,11 @@ export const VacancyWrapp = styled.div`
             color: #D9D9D9;
         }
 
+        
+        .logo-company img {
+            width: 50px;
+        }
+
         .section-title {
           font-weight: 500;
           font-size: 20px;
@@ -75,6 +81,19 @@ export const VacancyWrapp = styled.div`
           opacity: 1;
           animation: ${fade} 0.2s ease-in-out;
         }
+        .link-register {
+          margin-top: 20px;
+
+          button {
+            width: 150px;
+            height: 40px;
+            border: none;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            font-weight: bold;
+          }
+        }
       }
       @media (max-width: 1000px) {
         grid-template-columns: 80%;
@@ -82,7 +101,7 @@ export const VacancyWrapp = styled.div`
         .content-description {
           display: none;
         }
-      } 
+      }
     }
   }
 `

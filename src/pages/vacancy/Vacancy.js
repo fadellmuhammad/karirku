@@ -8,6 +8,7 @@ const Vacancy = () => {
   const [vacancy, setVacancy] = useState()
   const [desc, setDesc] = useState()
   const navigate = useNavigate()
+  const [requirement, setRequirement] = useState()
 
   useEffect(() => {
     getVacancy().then(res => res.json()).then(res => setVacancy(res.ListOfVacancies))
@@ -17,9 +18,16 @@ const Vacancy = () => {
     if (window.innerWidth > 1000) {
       setOpen(false)
       setDesc(vacancy[idx])
+      req(vacancy[idx])
     } else {
       navigate(`/lowongan/${idx}`, { state: { vacancy, idx } })
     }
+  }
+
+  const req = (desc) => {
+    let requirement = desc.Detail.Requirement
+    const [...req] = requirement.split("|")
+    setRequirement(req)
   }
 
   return (
@@ -60,11 +68,14 @@ const Vacancy = () => {
                   </div>
                   <div className="criteria">
                     <h1 className="section-title">Kriteria Peserta</h1>
-                    <p className="section-describe">{desc.Detail.Requirement}</p>
+                    <p className="section-describe">{
+                      requirement?.map(e => (
+                        <li>{e}</li>
+                      ))
+                    }</p>
                   </div>
                   <div className="link-register">
-                    <h1 className="section-title">Link Pendaftaran</h1>
-                    <p className="section-describe">{desc.Detail.Link}</p>
+                    <button className="section-describe"><a href={desc.Detail.Link}>Link Pendaftaran</a></button>
                   </div>
                 </div>
             }
