@@ -17,8 +17,6 @@ export const CareerWrapp = styled.div`
         height: 50px;
         cursor: pointer;
         margin-top: 20px;
-        /* border-radius: 10px; */
-        /* border-color: none; */
       }
     }
   }

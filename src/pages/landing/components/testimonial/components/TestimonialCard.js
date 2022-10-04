@@ -2,20 +2,20 @@ import React from "react"
 import { image } from "../../../../../assets/images"
 import { TestimonialCardWrapp } from "./TestimonialCard.style"
 
-const TestimonialCard = () => {
+const TestimonialCard = ({name, role, desc}) => {
   return (
     <TestimonialCardWrapp>
       <div className="testimonial-card">
         <div className="profile">
           <div className="image-profile">
-            <img src={image.dummy_profile_image} alt="" />
+            <img src={image.profie} alt="" />
           </div>
           <div className="profile-name">
-            <h1 className="name">Fadel Muhammad</h1>
-            <p className="role">Frontend Developer</p>
+            <h1 className="name">{name}</h1>
+            <p className="role">{role}</p>
           </div>
         </div>
-          <p className="desc">publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface </p>
+        <p className="desc">{desc}</p>
       </div>
     </TestimonialCardWrapp>
   )

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { getVacancy } from "../../api/Api"
 import { VacancyWrapp } from "./Vacancy.style"
+import ReactLoading from 'react-loading'
 
 const Vacancy = () => {
   const [open, setOpen] = useState(true)
@@ -11,7 +12,11 @@ const Vacancy = () => {
   const [requirement, setRequirement] = useState()
 
   useEffect(() => {
-    getVacancy().then(res => res.json()).then(res => setVacancy(res.ListOfVacancies))
+    getVacancy()
+    .then(res => res.json())
+    .then(res => setTimeout(() => {
+      setVacancy(res.ListOfVacancies)
+    }, 500))
   }, [])
 
   const openDesc = (idx) => {
@@ -37,17 +42,20 @@ const Vacancy = () => {
           <div className="list-vacancy">
             <ul>
               {
-                vacancy?.map((res, index) => (
-                  <li className="vacancy-item" onClick={() => openDesc(index)}>
-                    <div className="logo-company">
-                      <img src={res.ImageUrl} alt="" />
-                    </div>
-                    <div className="company-profile">
-                      <h1>{res.Company}</h1>
-                      <p>{res.Position}</p>
-                    </div>
-                  </li>
-                ))
+                !vacancy ?
+                  <div className="spin-load">
+                    <ReactLoading type="bubbles" color="#424242" height={70} width={70} />
+                  </div> : vacancy.map((res, index) => (
+                    <li className="vacancy-item" onClick={() => openDesc(index)}>
+                      <div className="logo-company">
+                        <img src={res.ImageUrl} alt="" />
+                      </div>
+                      <div className="company-profile">
+                        <h1>{res.Company}</h1>
+                        <p>{res.Position}</p>
+                      </div>
+                    </li>
+                  ))
               }
             </ul>
           </div>
@@ -75,7 +83,7 @@ const Vacancy = () => {
                     }</p>
                   </div>
                   <div className="link-register">
-                    <button className="section-describe"><a href={desc.Detail.Link}>Link Pendaftaran</a></button>
+                    <button className="section-describe"><a href={desc.Detail.Link} target="_blank" rel="noopener noreferrer">Link Pendaftaran</a></button>
                   </div>
                 </div>
             }

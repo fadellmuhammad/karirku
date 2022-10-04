@@ -61,10 +61,6 @@ Note: Beware of modifying this element as it can break the animations - you shou
     color: white;
   }
 
-  ul {
-    margin-top: 20px;
-  }
-
   li {
     margin-bottom: 10px;
   }

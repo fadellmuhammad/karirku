@@ -11,6 +11,13 @@ export const VacancyWrapp = styled.div`
   .vacancy {
     padding-top: 130px;
     padding-bottom: 90px;
+
+    .spin-load {
+      display: flex;
+      justify-content: center;
+      margin-top: 50px;
+    }
+
     .content {
       display: grid;
       gap: 20px;

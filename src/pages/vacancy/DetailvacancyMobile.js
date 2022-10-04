@@ -32,7 +32,7 @@ const DetailVacancyMobile = () => {
             }</p>
           </div>
           <div className="link-register">
-            <button className="section-describe"><a href={desc.Detail.Link}>Link Pendaftaran</a></button>
+            <button className="section-describe"><a href={desc.Detail.Link} target="_blank" rel="noopener noreferrer">Link Pendaftaran</a></button>
           </div>
         </div>
       </div>

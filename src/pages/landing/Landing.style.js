@@ -22,7 +22,8 @@ export const LandingWrapp = styled.section`
       .content {
         .title {
           margin-top: 30px;
-          max-width: 200px;
+          margin-bottom: 10px;
+          max-width: 250px;
           font-weight: 700;
           font-size: 4.5rem;
           line-height: 45px;
