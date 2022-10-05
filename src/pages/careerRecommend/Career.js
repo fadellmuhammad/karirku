@@ -14,8 +14,10 @@ const Career = () => {
       <div className="container">
         <div className="career">
           <div className="content">
-            <h1>Silakan melakukan test</h1>
-            <button className="btn" onClick={() => getQuiz()}>Test</button>
+            <h1>Apakah anda bingung dengan karir yang ingin dipilih?</h1>
+            <p>Silakan ikuti test untuk melihat karir yang cocok dengan diri anda.</p>
+            <p>Setelah Mengambil Test, anda juga akan mendapkan rekomendasi tempat magang yang sesuai dengan minat anda.</p>
+            <button className="btn" onClick={() => getQuiz()}>Ambil Test</button>
           </div>
         </div>
       </div>

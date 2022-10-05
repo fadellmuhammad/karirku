@@ -12,6 +12,25 @@ export const VacancyWrapp = styled.div`
     padding-top: 130px;
     padding-bottom: 90px;
 
+    .vacancy-menu {
+      .menu {
+        margin-bottom: 20px;
+        button {
+          background-color: white;
+          font-size: 15px;
+          font-weight: bold;
+          padding: 5px 15px;
+          margin-right: 30px;
+          margin-bottom: 20px;
+          box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.04);
+          height: 40px;
+          border-radius: 5px;
+          border: none;
+          cursor: pointer;
+        }
+      }
+    }
+
     .spin-load {
       display: flex;
       justify-content: center;
@@ -25,6 +44,9 @@ export const VacancyWrapp = styled.div`
       justify-content: center;
 
       .list-vacancy {
+        height: 100vh;
+        overflow: auto;
+        padding-right: 30px;
         .vacancy-item {
           cursor: pointer;
           display: flex;

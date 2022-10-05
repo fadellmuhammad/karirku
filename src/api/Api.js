@@ -1,5 +1,3 @@
-// import Axios from 'axios'
-
 const baseUrl = 'https://Karierku.herokuapp.com/'
 
 const getQuiz = async ({id, isLast}) => {
@@ -20,7 +18,27 @@ const getVacancy = async () => {
   })
 }
 
+const getRecommendation = async (role) => {
+  return fetch(baseUrl + 'lowongan/reccomendation', {
+    "method": 'POST',
+    "body": JSON.stringify(
+      {
+        "RecommendationRole": role
+      }
+    )
+  })
+}
+
+
+const getNewVacancy = async () =>{
+  return fetch(baseUrl, {
+    "method": 'GET'
+  })
+}
+
 export {
   getQuiz,
-  getVacancy
+  getVacancy,
+  getNewVacancy,
+  getRecommendation
 }

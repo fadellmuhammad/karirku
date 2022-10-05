@@ -1,105 +1,95 @@
 import React, { useEffect, useState } from "react"
-import { getQuiz } from '../../api/Api'
+import { getQuiz, getRecommendation } from '../../api/Api'
 import { QuizWrapp } from "./Quiz.style"
-
-// const data = [
-//   {
-//     id: 1,
-//     quest: 'pilihlah bidang yang anda sukai',
-//     answers: [
-//       {
-//         answer: 'front end'
-//       },
-//       {
-//         answer: 'front end'
-//       },
-//       {
-//         answer: 'front end'
-//       }
-//     ]
-//   },
-//   {
-//     id: 2,
-//     quest: 'apakah anda suka',
-//     answers: [
-//       {
-//         answer: 'bek end'
-//       },
-//       {
-//         answer: 'bek end'
-//       },
-//       {
-//         answer: 'bek end'
-//       }
-//     ]
-//   }
-// ]
+import ReactLoading from 'react-loading'
+import { useNavigate } from "react-router-dom"
 
 const Quiz = () => {
   const [quiz, setQuiz] = useState()
+  const [openButton, setOpenButton] = useState(false)
+  const [openResult, setOpenResult] = useState(false)
+  const [lastIdQuiz, setLastIdQuiz] = useState()
+  const [recommendation, setRecommendation] = useState()
   const [req, setReq] = useState({
     id: 0,
     isLast: false
   })
+  const navigate = useNavigate()
 
   useEffect(() => {
-    getQuiz(req).then(res => res.json()).then(res => setQuiz(res))
+    if (!req.isLast) {
+      getQuiz(req).then(res => res.json()).then(res => setQuiz(res))
+    } else {
+      setOpenButton(true)
+    }
   }, [req])
+
+  const handleClickQuiz = (idQuiz, Islast) => {
+    if (Islast === true) {
+      setLastIdQuiz(idQuiz)
+    }
+    setReq({ id: idQuiz, isLast: Islast })
+  }
+
+  const result = () => {
+    getQuiz({ id: lastIdQuiz, isLast: quiz.IsLast })
+      .then(res => res.json())
+      .then(res => setRecommendation(res))
+    setOpenResult(true)
+  }
+
+  const getRecommend = (role) => {
+    getRecommendation(role)
+      .then(res => res.json())
+      .then(res => navigate(`/lowongan`, { state: { res } }))
+  }
 
   return (
     <QuizWrapp>
       <div className="container">
         <div className="quiz">
           <div className="content">
-            <h1 className="question">{quiz?.Question}</h1>
-            <div className="answers">
-              <ul>
-                {
-                  quiz?.Options?.map(res => (
-                    <li className="answer" onClick={() => setReq({id: res.Id, isLast: quiz.IsLast})}>{res.Text}</li>
-                  ))
-                  // console.log(quiz)
-                  // data[0].answers.map(res => (
-                  //   <li className="answer" onClick={() => setTes(false)}>{res.answer}</li>
-                  // ))
-                }
-              </ul>
-            </div>
-            {/* {
-              tes ? <>
-                <h1 className="question">{data[0].quest}</h1>
-                <div className="answers">
-                  <ul>
-                    {
-                      data[0].answers.map(res => (
-                        <li className="answer" onClick={() => setTes(false)}>{res.answer}</li>
-                      ))
-                    }
-                  </ul>
-                </div>
-              </> : <>
-                <h1 className="question">{data[1].quest}</h1>
-                <div className="answers">
-                  <ul>
-                    {
-                      data[1].answers.map(res => (
-                        <li className="answer">{res.answer}</li>
-                      ))
-                    }
-                  </ul>
-                </div>
-              </>
-            } */}
 
-            {/* <h1 className="question">Pilihlah Bidang yang anda sukai</h1>
-            <div className="answers">
-              <ul>
-                <li className="answer">front End Developer</li>
-                <li className="answer">front End Developer</li>
-                <li className="answer">front End Developer</li>
-                <li className="answer">front End Developer</li>
-              </ul>
-            </div> */}
+            {
+              openResult ?
+                <>
+                  {
+                    !recommendation ?
+                      <div className="spin-load">
+                        <ReactLoading className="center" type="bubbles" color="#424242" height={70} width={70} />
+                      </div> :
+                      <div className="recommend">
+                        <p>Karir ini sesuai dengan minat anda.</p>
+                        <h4 className="rec_role">- {recommendation.RecommendationRole}</h4>
+                        <p>Berikut Skill yang harus anda pelajari dan kuasai untuk bisa berkarir di bidang ini.</p>
+                        {
+                          recommendation.RecomendationHardSkills.map(res => <h4>- {res}</h4>)
+                        }
+                        <button className="btn-rec" onClick={() => getRecommend(recommendation.RecommendationRole)}>Lihat lowongan yang sesuai</button>
+                      </div>
+                  }
+                </>
+                : <>
+                  <h1 className="question">{quiz?.Question}</h1>
+                  <div className="answers">
+                    <ul>
+                      {
+                        !quiz ?
+                          <div className="spin-load">
+                            <ReactLoading className="center" type="bubbles" color="#424242" height={70} width={70} />
+                          </div> :
+                          quiz?.Options?.map(res => {
+                            return <li className="answer" onClick={() => handleClickQuiz(res.Id, quiz.IsLast)}>{res.Text}</li>
+                          })
+                      }
+                    </ul>
+                    {
+                      openButton ? <div className="result"><button className="btn-result" onClick={() => result()}>Lihat Hasil</button></div> : ''
+                    }
+                  </div>
+                </>
+            }
+
           </div>
         </div>
       </div>

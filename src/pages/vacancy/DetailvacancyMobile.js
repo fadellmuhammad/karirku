@@ -4,9 +4,17 @@ import { DetailVacancyMobileWrapp } from "./DetailVacancyMobile.style"
 
 const DetailVacancyMobile = () => {
   const { state } = useLocation()
-  const { vacancy, idx } = state
-  const desc = vacancy[idx]
+  let desc = {}
+  
+  if (state.menu === 'vacancy') {
+    const { vacancy, idx } = state
+    desc = vacancy[idx]
+  } else if (state.menu === 'vacancyRec') {
+    const { vacancyRec, idx } = state
+    desc = vacancyRec[idx]
+  }
   const [...requirement] = desc.Detail.Requirement.split("|")
+  const [...jobdesk] = desc.Detail.Description.split("|")
 
   return (
     <DetailVacancyMobileWrapp>
@@ -21,7 +29,11 @@ const DetailVacancyMobile = () => {
           </div>
           <div className="detail-activity">
             <h1 className="section-title">Rincian Kegiatan</h1>
-            <p className="section-describe">{desc.Detail.Description}</p>
+            <p className="section-describe">{
+              jobdesk?.map(e => (
+                <li>{e}</li>
+              ))
+            }</p>
           </div>
           <div className="criteria">
             <h1 className="section-title">Kriteria Peserta</h1>

@@ -5,10 +5,12 @@ export const FavoriteInternCardWrapp = styled.div`
   justify-content: center;
 
   .intern-card {
-    max-width: 320px;
+    max-width: 90%;
     padding: 20px 20px;
     border-radius: 21px;
-    background: linear-gradient(131.28deg, #FE8AB5 1.81%, #F55686 95.43%);
+    background: #FFFFFF;
+    box-shadow: 5px 4px 10px 0px #79797929;
+    /* background: linear-gradient(131.28deg, #FE8AB5 1.81%, #F55686 95.43%); */
     
     @media (max-width: 600px) {
       border-radius: 15px;
@@ -24,10 +26,19 @@ export const FavoriteInternCardWrapp = styled.div`
 
       .logo-company {
         margin-right: 8px;
+
+        img {
+          width: 60px;
+        }
       }
 
       .container-title {
-        color: white;
+        color: black;
+
+        .role {
+          margin-top: 5px;
+          font-size: 16px;
+        }
       }
     }
   }

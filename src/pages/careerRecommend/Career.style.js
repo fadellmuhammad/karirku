@@ -5,6 +5,7 @@ export const CareerWrapp = styled.div`
     padding-top: 50px;
     display: flex;
     justify-content: center;
+    align-items: center;
     height: 70vh;
 
     .content {
@@ -13,10 +14,14 @@ export const CareerWrapp = styled.div`
       text-align: center;
 
       .btn {
-        width: 100px;
+        font-size: 18px;
+        font-weight: bold;
+        width: 200px;
         height: 50px;
         cursor: pointer;
         margin-top: 20px;
+        border: none;
+        border-radius: 10px;
       }
     }
   }

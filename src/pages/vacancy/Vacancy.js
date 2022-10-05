@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 import { getVacancy } from "../../api/Api"
 import { VacancyWrapp } from "./Vacancy.style"
 import ReactLoading from 'react-loading'
@@ -10,22 +10,51 @@ const Vacancy = () => {
   const [desc, setDesc] = useState()
   const navigate = useNavigate()
   const [requirement, setRequirement] = useState()
+  const [jobdesk, setJobdesk] = useState()
+  const [buttonMenu, setButtonMenu] = useState(true)
+  const { state } = useLocation()
+  const [vacancyRec, setVacancyRec] = useState()
 
   useEffect(() => {
+    if (state === null) {
+      getVacancy()
+        .then(res => res.json())
+        .then(res => setTimeout(() => {
+          setVacancy(res.ListOfVacancies)
+        }, 100))
+    } else {
+      setButtonMenu(false)
+      setVacancyRec(state.res.ListOfVacancies)
+    }
+  }, [state])
+
+  const getAllVacancy = () => {
+    setButtonMenu(true)
     getVacancy()
-    .then(res => res.json())
-    .then(res => setTimeout(() => {
-      setVacancy(res.ListOfVacancies)
-    }, 500))
-  }, [])
+      .then(res => res.json())
+      .then(res => setTimeout(() => {
+        setVacancy(res.ListOfVacancies)
+      }, 100))
+  }
 
   const openDesc = (idx) => {
     if (window.innerWidth > 1000) {
       setOpen(false)
-      setDesc(vacancy[idx])
-      req(vacancy[idx])
+      if (buttonMenu === true) {
+        setDesc(vacancy[idx])
+        req(vacancy[idx])
+        job(vacancy[idx])
+      } else {
+        setDesc(vacancyRec[idx])
+        req(vacancyRec[idx])
+        job(vacancyRec[idx])
+      }
     } else {
-      navigate(`/lowongan/${idx}`, { state: { vacancy, idx } })
+      if (buttonMenu === true) {
+        navigate(`/lowongan/${idx}`, { state: { vacancy, idx, "menu":"vacancy" } })
+      } else {
+        navigate(`/lowongan/${idx}`, { state: { vacancyRec, idx, "menu":"vacancyRec" } })
+      }
     }
   }
 
@@ -35,29 +64,68 @@ const Vacancy = () => {
     setRequirement(req)
   }
 
+  const job = (desc) => {
+    let jobdesk = desc.Detail.Description
+    const [...req] = jobdesk.split("|")
+    setJobdesk(req)
+  }
+
   return (
     <VacancyWrapp>
       <div className="vacancy">
         <div className="content">
-          <div className="list-vacancy">
-            <ul>
-              {
-                !vacancy ?
-                  <div className="spin-load">
-                    <ReactLoading type="bubbles" color="#424242" height={70} width={70} />
-                  </div> : vacancy.map((res, index) => (
-                    <li className="vacancy-item" onClick={() => openDesc(index)}>
-                      <div className="logo-company">
-                        <img src={res.ImageUrl} alt="" />
+          <div className="vacancy-menu">
+            <div className="menu">
+              <button onClick={() => getAllVacancy()}>Semua</button>
+              <button onClick={() => setButtonMenu(false)}>Rekomendasi</button>
+            </div>
+            {
+              !buttonMenu
+                ?
+                <div className="list-vacancy">
+                  {
+                    vacancyRec
+                      ? vacancyRec.map((res, index) => (
+                        <li className="vacancy-item" onClick={() => openDesc(index)}>
+                          <div className="logo-company">
+                            <img src={res.ImageUrl} alt="" />
+                          </div>
+                          <div className="company-profile">
+                            <h1>{res.Company}</h1>
+                            <p>{res.Position}</p>
+                          </div>
+                        </li>
+                      ))
+                      : <div>
+                        {
+                          vacancyRec !== undefined ? <p>maaf, belum ada lowongan yang sesuai dengan minat yang anda miliki</p> : <p>Anda Belum test, silakan melakukan test terlebih dahulu</p>
+                        }
                       </div>
-                      <div className="company-profile">
-                        <h1>{res.Company}</h1>
-                        <p>{res.Position}</p>
-                      </div>
-                    </li>
-                  ))
-              }
-            </ul>
+                  }
+                </div>
+                :
+                <div className="list-vacancy">
+                  <ul>
+                    {
+                      vacancy === undefined ?
+                        <div className="spin-load">
+                          <ReactLoading type="bubbles" color="#424242" height={70} width={70} />
+                        </div> : vacancy.map((res, index) => (
+                          <li className="vacancy-item" onClick={() => openDesc(index)}>
+                            <div className="logo-company">
+                              <img src={res.ImageUrl} alt="" />
+                            </div>
+                            <div className="company-profile">
+                              <h1>{res.Company}</h1>
+                              <p>{res.Position}</p>
+                            </div>
+                          </li>
+                        ))
+                    }
+                  </ul>
+                </div>
+            }
+
           </div>
           <div className="content-description">
             {
@@ -71,8 +139,12 @@ const Vacancy = () => {
                     <p>{desc.Position}</p>
                   </div>
                   <div className="detail-activity">
-                    <h1 className="section-title">Rincian Kegiatan</h1>
-                    <p className="section-describe">{desc.Detail.Description}</p>
+                    <h1 className="section-title">Deskripsi Pekerjaan</h1>
+                    <p className="section-describe">{
+                      jobdesk?.map(e => (
+                        <li>{e}</li>
+                      ))
+                    }</p>
                   </div>
                   <div className="criteria">
                     <h1 className="section-title">Kriteria Peserta</h1>

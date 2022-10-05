@@ -39,6 +39,12 @@ export const LandingWrapp = styled.section`
           display: flex;
           margin-top: 15px;
 
+          .link-btn {
+            color: white;
+            font-weight: bold;
+            letter-spacing: 1px;
+          }
+
           button {
             width: 60%;
             height: 40px;

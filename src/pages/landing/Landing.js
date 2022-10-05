@@ -3,6 +3,7 @@ import FavoriteIntern from "./components/favoriteIntern/FavoriteIntern"
 import Testimonial from "./components/testimonial/Testimonial"
 import { image } from "../../assets/images"
 import { LandingWrapp } from "./Landing.style"
+import { Link } from "react-router-dom"
 
 const Landing = () => {
   return (
@@ -16,7 +17,7 @@ const Landing = () => {
                 <p className="desc">Masih bingung kamu cocok di bidang apa?
                   Disini kamu bisa mencari tahunya</p>
                 <div className="section">
-                  <button>Coba Sekarang</button>
+                  <button><Link to="/karir" className="link-btn">Coba Sekarang</Link></button>
                 </div>
               </div>
             </div>

@@ -1,18 +1,18 @@
 import React from "react"
-import { image } from "../../../../../../assets/images"
 import { FavoriteInternCardWrapp } from "./FavoriteInternCard.style"
 
-const FavoriteInternCard = () => {
+const FavoriteInternCard = ({vacancy}) => {
+  const {Company, ImageUrl, Position} = vacancy
   return (
     <FavoriteInternCardWrapp>
       <div className="intern-card">
         <div className="content">
           <div className="logo-company">
-            <img src={image.dummy_logo_company} alt="" />
+            <img src={ImageUrl} alt="" />
           </div>
           <div className="container-title">
-            <h1 className="role">Front End Developer</h1> <hr />
-            <h1 className="company">Tokopedi</h1>
+            <h1 className="company">{Company}</h1>
+            <h1 className="role">{Position}</h1>
           </div>
         </div>
       </div>

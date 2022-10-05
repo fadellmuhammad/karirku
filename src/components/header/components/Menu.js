@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 const MenuMobile = () => {
   return (
     <ul className="list">
-      <li><Link to='/karir'>Rekomendasi Karir</Link></li>
+      <li><Link to='/karir'>Temukan Minat</Link></li>
       <li><Link to='/lowongan'>Lowongan</Link></li>
       <li><Link to='/'>Beranda</Link></li>
     </ul>
