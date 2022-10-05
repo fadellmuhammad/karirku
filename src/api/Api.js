@@ -1,6 +1,6 @@
 // import Axios from 'axios'
 
-const baseUrl = 'http://Karierku.herokuapp.com/'
+const baseUrl = 'https://Karierku.herokuapp.com/'
 
 const getQuiz = async ({id, isLast}) => {
   return  fetch(baseUrl + 'quiz', {
