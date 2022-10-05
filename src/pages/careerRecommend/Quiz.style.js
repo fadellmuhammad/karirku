@@ -12,10 +12,9 @@ export const QuizWrapp = styled.div`
     padding-top: 50px;
     display: flex;
     justify-content: center;
-    margin: 60px auto;
 
     .content {
-      margin: 120px 0;
+      margin: 180px 0;
       width: 816px;
       animation: ${fade_in} 0.3s ease-in-out;
     }
